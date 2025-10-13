@@ -11,7 +11,7 @@ export default function Home() {
       <nav className="my-16 animate-fade-in">
         <ul className="flex items-center justify-center gap-4">
           <Link href="/">
-            <Drama size={30} color="white" />
+            <Drama size={50} color="white" />
           </Link>
           {navigation.map((item) => (
             <Link

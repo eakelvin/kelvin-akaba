@@ -154,7 +154,7 @@ export const Project = () => {
                                             View Live
                                         </Link>
 
-                                        {work.github && (
+                                        {/* {work.github && (
                                             <Link
                                                 href={work.github}
                                                 target="_blank"
@@ -164,7 +164,7 @@ export const Project = () => {
                                                 <Github className="w-4 h-4 mr-2" />
                                                 Code
                                             </Link>
-                                        )}
+                                        )} */}
                                     </div>
 
                                     <div className="flex items-center space-x-1">

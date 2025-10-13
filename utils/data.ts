@@ -45,7 +45,7 @@ export default [
     id: 1,
     title: "CEDIRATES - Compare Exchange Rates and Fuel Prices",
     description:
-      "This platform provides up-to-date financial and economic information, built with Next.js, Tailwind CSS with shadcn/ui, Node.js, Express, and MongoDB. The homepage features RSS news feeds, live exchange rate widgets, current fuel prices, and interactive poll questions. Users can explore detailed exchange rates for the dollar, euro, and pound across banks, forex bureaus, card payments, money transfer services, and crypto fintech companies, along with FAQs and company advertisements. The fuel section displays prices for petrol, diesel, and premium. A built-in currency converter includes a historical chart and supports conversions across multiple currencies",
+      "This platform provides up-to-date financial and economic information that features RSS news feeds, live exchange rate widgets, current fuel prices, and interactive poll questions. Users can explore detailed exchange rates for the dollar, euro, and pound across banks, forex bureaus, card payments, money transfer services, and crypto fintech companies, along with FAQs and company advertisements. The fuel section displays prices for petrol, diesel, and premium. A built-in currency converter includes a historical chart and supports conversions across multiple currencies",
     logo: [crLogin, crHome, crRates, crCC, crFooter],
     skills: ["NEXT", "TAILWIND", "EXPRESS", "NODEJS", "MONGODB"],
     website: "https://cedirates.com/",
@@ -84,7 +84,7 @@ export default [
     id: 3,
     title: "EDFRICA - Educative Management System",
     description:
-      "An AI-powered exam platform built with React and MUI on the frontend, and Supabase/Node.js on the backend. Users access a central dashboard where they can take exams, interact with AI for questions, and receive personalized learning support. The platform features AI-driven quiz generation, progress tracking, and exam analysis. A scoreboard ranks users against others, while the notification panel and customizable settings (including contrast, layout, and direction) enhance user experience.",
+      "An AI-powered exam platform. Users access a central dashboard where they can take exams, interact with AI for questions, and receive personalized learning support. The platform features AI-driven quiz generation, progress tracking, and exam analysis. A scoreboard ranks users against others, while the notification panel and customizable settings (including contrast, layout, and direction) enhance user experience.",
     logo: [
       edHome,
       edHomepage,
@@ -96,17 +96,16 @@ export default [
       edPlan,
       edProfile,
     ],
-    skills: ["REACT", "MUI", ""],
+    skills: ["REACT", "MUI", "SUPABASE", "NODEJS"],
     website: "https://www.edfrica.com/",
     // website: "https://app.edfrica.com/",
-    github: "https://github.com/eakelvin",
     status: "true",
   },
   {
     id: 4,
     title: "MAVE SPORTS - Sports Content",
     description:
-      "MaveSports is a WordPress website designed for sports-related content, with a strong focus on design, aesthetics, and modern style. It features informative sliders, unique carousels, dropdown menus, and search functionality to enhance user experience and content discovery.",
+      "Designed for sports-related content, with a strong focus on design, aesthetics, and modern style. It features informative sliders, unique carousels, dropdown menus, and search functionality to enhance user experience and content discovery.",
     logo: [mpH, mpHo, mpHom, mpHome],
     skills: ["WORDPRESS"],
     website: "https://mavesportsnetwork.com/",

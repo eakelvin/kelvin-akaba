@@ -15,7 +15,7 @@ const page = () => {
                         My Projects
                     </h1>
                     <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-                        A display of smart solutions and creative applications built with modern technologies.
+                        {/* A display of smart solutions and creative applications built with modern technologies. */}
                         Each project represents a unique challenge solved with clean code and thoughtful design.
                     </p>
                     <div className="w-full h-px bg-gradient-to-r from-transparent via-zinc-600 to-transparent mt-12"></div>

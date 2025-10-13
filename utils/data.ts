@@ -74,7 +74,7 @@ export default [
     title: "VILLAGE CREATORS - Celebrate creativity",
     // description: ", nurture growth, build community connections",
     description:
-      "A content-managed website built with Sanity CMS and Nextjs featuring an informative carousel, a user form to collect contact details for updates, blog posts, and a directory page showcasing various businesses. All content is managed centrally through the CMS, allowing easy updates and content control.",
+      "A content-managed website featuring an informative carousel, a user form to collect contact details for updates, blog posts, and a directory page showcasing various businesses. All content is managed centrally through the CMS, allowing easy updates and content control.",
     logo: [vcHome, vcCarousel, vcBlog, vcDirectory, vcAbout],
     skills: ["NEXT", "BOOTSTRAP", "SANITY CMS"],
     website: "https://www.villagecreators.net/",

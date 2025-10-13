@@ -25,6 +25,17 @@ const mpHo = require("@/assets/images/mp-homep.png").default;
 const mpHom = require("@/assets/images/mp-homepa.png").default;
 const mpHome = require("@/assets/images/mp-dropdown.png").default;
 
+const smsHome = require("@/assets/images/sms-home1.png").default;
+const smsAbout = require("@/assets/images/sms-about.png").default;
+const smsFaq = require("@/assets/images/sms-faqs.png").default;
+const smsFooter = require("@/assets/images/sms-footer.png").default;
+const smsOffices = require("@/assets/images/sms-offices.png").default;
+const smsPartners = require("@/assets/images/sms-partners.png").default;
+const smsPortfolio = require("@/assets/images/sms-portfolio.png").default;
+const smsServices = require("@/assets/images/sms-services.png").default;
+const smsWhy = require("@/assets/images/sms-why.png").default;
+const smsV = require("@/assets/images/sms-v.png").default;
+
 export default [
   {
     id: 1,
@@ -35,6 +46,15 @@ export default [
     skills: ["NEXT", "TAILWIND", "EXPRESS", "NODEJS", "MONGODB"],
     website: "https://cedirates.com/",
     status: "true",
+  },
+  {
+    id: 5,
+    title: "SUSTAINABLE MARKETING SOLUTIONS - Digital Marketing Agency",
+    description: "Delivering marketing strategies, fostering partnerships, and inspiring change for a greener and more socially responsible world.",
+    logo: [smsHome, smsAbout, smsFaq, smsFooter, smsOffices, smsPartners, smsPortfolio, smsServices, smsWhy, smsV],
+    skills: ["WORDPRESS"],
+    website: "https://darkviolet-ibex-383743.hostingersite.com/",
+    status: "false",
   },
   {
     id: 2,

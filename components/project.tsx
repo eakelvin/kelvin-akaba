@@ -80,7 +80,7 @@ export const Project = () => {
                                 <div className="absolute top-4 right-4">
                                     <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/20 text-green-400 border border-green-500/30">
                                         <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-                                        Live
+                                        {work.status === "true" ? "Live" : "In Development"}
                                     </span>
                                 </div>
                             </div>

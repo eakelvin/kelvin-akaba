@@ -15,12 +15,14 @@ import { ExternalLink, Github, Globe, Code } from 'lucide-react'
 import Link from 'next/link'
 import data from '@/utils/data';
 import Image from 'next/image';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export const Project = () => {
     const [api, setApi] = useState<CarouselApi>();
     const [current, setCurrent] = useState(0);
     const [count, setCount] = useState(0);
     const [activeProject, setActiveProject] = useState<number | null>(null);
+    const [imageLoadingStates, setImageLoadingStates] = useState<{ [key: string]: boolean }>({});
 
     useEffect(() => {
         if (!api) {
@@ -34,6 +36,26 @@ export const Project = () => {
             setCurrent(api.selectedScrollSnap() + 1);
         });
     }, [api]);
+
+    // Initialize loading states for all images
+    useEffect(() => {
+        const loadingStates: { [key: string]: boolean } = {};
+        data.forEach((work) => {
+            work.logo.forEach((_, imgIndex) => {
+                const imageKey = `${work.id}-${imgIndex}`;
+                loadingStates[imageKey] = true;
+            });
+        });
+        setImageLoadingStates(loadingStates);
+    }, []);
+
+    const handleImageLoad = (workId: number, imgIndex: number) => {
+        const imageKey = `${workId}-${imgIndex}`;
+        setImageLoadingStates(prev => ({
+            ...prev,
+            [imageKey]: false
+        }));
+    };
 
     return (
         <div className="max-w-7xl mx-auto px-6">
@@ -58,19 +80,30 @@ export const Project = () => {
                                     }}
                                 >
                                     <CarouselContent>
-                                        {work.logo.map((image, imgIndex) => (
-                                            <CarouselItem key={imgIndex}>
-                                                <div className="relative aspect-video bg-gradient-to-br from-zinc-800 to-zinc-900">
-                                                    <Image
-                                                        src={image}
-                                                        alt={`${work.title} - Screenshot ${imgIndex + 1}`}
-                                                        fill
-                                                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                                                    />
-                                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                                                </div>
-                                            </CarouselItem>
-                                        ))}
+                                        {work.logo.map((image, imgIndex) => {
+                                            const imageKey = `${work.id}-${imgIndex}`;
+                                            const isLoading = imageLoadingStates[imageKey];
+
+                                            return (
+                                                <CarouselItem key={imgIndex}>
+                                                    <div className="relative aspect-video bg-gradient-to-br from-zinc-800 to-zinc-900">
+                                                        {isLoading && (
+                                                            <Skeleton className="absolute inset-0 w-full h-full" />
+                                                        )}
+                                                        <Image
+                                                            src={image}
+                                                            alt={`${work.title} - Screenshot ${imgIndex + 1}`}
+                                                            fill
+                                                            className={`object-cover transition-all duration-300 group-hover:scale-105 ${isLoading ? 'opacity-0' : 'opacity-100'
+                                                                }`}
+                                                            onLoad={() => handleImageLoad(work.id, imgIndex)}
+                                                            onError={() => handleImageLoad(work.id, imgIndex)}
+                                                        />
+                                                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                                                    </div>
+                                                </CarouselItem>
+                                            );
+                                        })}
                                     </CarouselContent>
                                     <CarouselPrevious className="left-4 top-1/2 -translate-y-1/2 bg-zinc-800/80 border-zinc-700 hover:bg-zinc-700/80 text-white" />
                                     <CarouselNext className="right-4 top-1/2 -translate-y-1/2 bg-zinc-800/80 border-zinc-700 hover:bg-zinc-700/80 text-white" />
@@ -150,8 +183,10 @@ export const Project = () => {
                         </Card>
 
                         {/* Hover Effect Overlay */}
-                        <div className={`absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-blue-500/5 rounded-lg pointer-events-none transition-opacity duration-300 ${activeProject === work.id ? 'opacity-100' : 'opacity-0'
-                            }`} />
+                        <div
+                            className={`absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-blue-500/5 rounded-lg pointer-events-none transition-opacity duration-300 ${activeProject === work.id ? 'opacity-100' : 'opacity-0'
+                                }`}
+                        />
                     </div>
                 ))}
             </div>
@@ -176,95 +211,3 @@ export const Project = () => {
         </div>
     )
 }
-
-
-
-// PREVIOUS CODE
-
-// "use client"
-// import React, { useEffect, useState } from 'react'
-// import { Card, CardContent } from "@/components/ui/card"
-// import {
-//     Carousel,
-//     CarouselContent,
-//     CarouselItem,
-//     CarouselNext,
-//     CarouselPrevious,
-//     type CarouselApi,
-// } from "@/components/ui/carousel"
-// import { Progress } from "@/components/ui/progress";
-// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-// import Link from 'next/link'
-// import data from '@/utils/data';
-// import Image from 'next/image';
-
-// export const Project = () => {
-//     const [api, setApi] = useState<CarouselApi>();
-//     const [current, setCurrent] = useState(0);
-//     const [count, setCount] = useState(0);
-//     const progress = (current * 100) / count;
-
-//     useEffect(() => {
-//         if (!api) {
-//             return;
-//         }
-
-//         setCount(api.scrollSnapList().length);
-//         setCurrent(api.selectedScrollSnap() + 1);
-
-//         api.on("select", () => {
-//             setCurrent(api.selectedScrollSnap() + 1);
-//         });
-//     }, [api]);
-
-//     return (
-//         <div className="py-4 px-10">
-//             {data.map((work) => (
-//                 <div key={work.id} className="mb-10">
-//                     <Carousel setApi={setApi} className="w-full max-w-full mx-auto">
-//                         <CarouselContent>
-//                             {work.logo.map((image, index) => (
-//                                 <CarouselItem key={index}>
-//                                     <Card className='rounded-none'>
-//                                         <CardContent className="flex aspect-video items-center justify-center p-6">
-//                                             <Image
-//                                                 src={image}
-//                                                 alt={`Image ${index + 1}`}
-//                                                 className='w-full h-full object-contain'
-//                                             />
-//                                         </CardContent>
-//                                     </Card>
-//                                 </CarouselItem>
-//                             ))}
-//                         </CarouselContent>
-//                         <CarouselPrevious className="top-[calc(100%+0.5rem)] translate-y-0 left-0" />
-//                         <CarouselNext className="top-[calc(100%+0.5rem)] translate-y-0 left-2 translate-x-full" />
-//                     </Carousel>
-
-//                     <Progress value={progress} className="mt-4 w-24 ml-auto invisible" />
-
-//                     <div className="text-white mx-auto space-y-4 mt-8">
-//                         <h2 className='text-xl font-bold'>
-//                             {work.title}
-//                         </h2>
-//                         <Avatar>
-//                             <AvatarImage src="https://github.com/shadcn.png" />
-//                             <AvatarFallback>EA</AvatarFallback>
-//                         </Avatar>
-//                         <p className='text-sm'>
-//                             {work.description}
-//                         </p>
-//                         <div className='mt-1'>
-//                             <Link
-//                                 href={work.website}
-//                                 className='text-cyan-200 hover:underline'
-//                             >
-//                                 View Project
-//                             </Link>
-//                         </div>
-//                     </div>
-//                 </div>
-//             ))}
-//         </div>
-//     )
-// }

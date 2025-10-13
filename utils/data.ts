@@ -36,6 +36,10 @@ const smsServices = require("@/assets/images/sms-services.png").default;
 const smsWhy = require("@/assets/images/sms-why.png").default;
 const smsV = require("@/assets/images/sms-v.png").default;
 
+const eaChatbot = require("@/assets/images/ea-cb-h.png").default;
+const eaChatbot2 = require("@/assets/images/ea-cb-gpt.png").default;
+const eaChatbot3 = require("@/assets/images/ea-cb-ge.png").default;
+
 export default [
   {
     id: 1,
@@ -46,6 +50,15 @@ export default [
     skills: ["NEXT", "TAILWIND", "EXPRESS", "NODEJS", "MONGODB"],
     website: "https://cedirates.com/",
     status: "true",
+  },
+  {
+    id: 6,
+    title: "EA CHATBOT - AI Chatbot",
+    description: "Start a conversation with either ChatGPT or Gemini",
+    logo: [eaChatbot, eaChatbot2, eaChatbot3],
+    skills: ["NEXT", "TAILWIND", "OPENAI-API", "GEMINI-API"],
+    website: "https://chatbot-phi-black.vercel.app/",
+    status: "false",
   },
   {
     id: 5,
@@ -101,12 +114,12 @@ export default [
   },
 
   // {
-  //   "id": 20,
-  //   "title": "",
-  //   "description": "",
-  //   "logo": "/images/",
-  //   "skills": ["REACT", "CSS"],
-  //   "website": "",
-  //   "github": "",
+  //   id: 20,
+  //   title: "",
+  //   description: "",
+  //   logo: "/images/",
+  //   skills: ["REACT", "CSS"],
+  //   website: "",
+  //   github: "",
   // },
 ];

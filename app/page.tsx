@@ -86,7 +86,7 @@ export default function Home() {
                   Front End Engineer
                 </h2>
                 <p className="mt-4 max-w-xs leading-normal text-slate-400">
-                  I build accessible, pixel-perfect digital experiences for the web.
+                  I turn ideas into pixel-perfect digital experiences and build powerful backend systems users can trust.
                 </p>
                 <nav className="nav hidden lg:block mt-16" aria-label="In-page jump links">
                   <ul className="w-max space-y-3">

@@ -15,13 +15,13 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kelvin Akaba",
-    template: "%s | Kelvin Akaba",
+    default: "Kelvin Akaba - Full-stack developer",
+    template: "%s | Kelvin Akaba - Full-stack developer",
   },
-  description: "Full-stack developer.",
+  description: "turning ideas into polished interfaces and powerful backend systems users can trust",
   openGraph: {
-    title: "Kelvin Akaba",
-    description: "Full-stack developer.",
+    title: "Kelvin Akaba - Full-stack developer",
+    description: "turning ideas into polished interfaces and powerful backend systems users can trust",
     url: "",
     siteName: "",
     images: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    title: "Kelvin Akaba",
+    title: "Kelvin Akaba - Full-stack developer",
     card: "summary_large_image",
   },
   icons: {

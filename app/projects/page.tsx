@@ -1,12 +1,16 @@
+"use client"
+import React, { useState } from 'react'
 import Footer from '@/components/footer'
 import { Navigation } from '@/components/nav'
 import { Project } from '@/components/project'
-import React from 'react'
+import { Header } from '@/components/ui/header'
 
 const page = () => {
+    const [activeSection, setActiveSection] = useState('about');
+
     return (
         <div className="min-h-screen bg-gradient-to-tl from-black via-zinc-900/50 to-black">
-            <Navigation />
+            <Header activeSection={activeSection} />
 
             {/* Hero Section */}
             <div className="relative py-20 px-6 text-center">
